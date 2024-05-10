@@ -1,4 +1,4 @@
-name: Products
+name: Home
 on:
   workflow_dispatch:
     inputs:
