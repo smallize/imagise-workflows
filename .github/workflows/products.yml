@@ -23,7 +23,7 @@ jobs:
           hugo-version: 'latest'
           extended: true
     - name: Build 
-      run: hugo --config "./configs/products.toml" -b "${{ github.event.inputs.environment.BASEURL }}" --cleanDestinationDir --minify --templateMetrics --templateMetricsHints --enableGitInfo
+      run: hugo --config "./configs/products.toml" -b "${{ secrets.PRODUCTS_BASE_URL }}" --cleanDestinationDir --minify --templateMetrics --templateMetricsHints --enableGitInfo
     - name: Deploy
       run: hugo deploy --config "configs/products.toml" --maxDeletes=-1 --target "${{ github.event.inputs.environment }}" --invalidateCDN --force
       env:
