@@ -1,4 +1,4 @@
-name: Home
+name: www.imagise.com
 on:
   workflow_dispatch:
     inputs:

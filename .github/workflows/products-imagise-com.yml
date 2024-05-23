@@ -1,4 +1,4 @@
-name: Products
+name: products.imagise.com
 on:
   workflow_dispatch:
     inputs:
