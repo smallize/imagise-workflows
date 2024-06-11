@@ -20,7 +20,7 @@ jobs:
     - name: Build 
       run: hugo --config "configs/websites.imagise.com.toml","configs/common.imagise.com.toml" -b "https://websites.imagise.com/" --cleanDestinationDir --minify --templateMetrics --templateMetricsHints --enableGitInfo
     - name: Deploy
-      run: hugo deploy --config "configs/websites.imagise.com.toml" --maxDeletes=-1 --target "imagise-com-production" --invalidateCDN --force
+      run: hugo deploy --config "configs/websites.imagise.com.toml" --maxDeletes=-1 --target "production" --invalidateCDN --force
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS }}
