@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+        with:
+            repository: smallize/imagise-docfx
+            token: ${{ secrets.REPO_TOKEN }}
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_ACCESS }}
+          aws-region: us-west-2
+
+      - name: Upload
+        run: aws s3 cp --recursive --exclude ".git/*" . s3://reference-qa.imagise.com/
